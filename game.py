@@ -14,9 +14,20 @@
 # lose permutations [0] rock loses to [1] paper, [1] paper loses to [2] scissors, [2] scissors loses to [0] rock
 import random
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 playerScore = 0
 computerScore = 0 
-print("Player score is", playerScore)
+print(bcolors.OKBLUE+ "Player score is", playerScore)
 print("Computer score is", computerScore)
 invalid = "Invalid move, please select either rock, paper or scissors"
 
