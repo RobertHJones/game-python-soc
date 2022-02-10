@@ -29,28 +29,40 @@ invalid = "Invalid move, please select either rock, paper or scissors"
 
 # win = Result("rock", "win")
 #     win.result
-
-moves = [" rock", " paper", " scissors"]
-
-def computerScore():
-    number = random.randint(0, 2)
-    # print(number)
-    # print(moves[number])
-    return(moves[number])
-
 username = input("What is your name?")
 print("Your name is" + username)
+# if len(username)>0:
+#     print('Yay!') 
 
-playerMove = input("Choose your move - rock, paper or scissors?")
-# print(move == moves[0])
-if playerMove == moves[0] or playerMove == moves[1] or playerMove == moves[2]:
-    print("Your selected move was" + playerMove)
-    computerMove= "paper" #computerScore()
-    print(computerMove)
-    if playerMove == computerMove:
-        print("You both selected", playerMove, "so it's a draw! Your current score is", playerScore, "and the computer score is", computerScore)
-    elif playerMove == moves[0] and computerMove == moves[2] or playerMove == moves[1] and computerMove == moves[0] or playerMove == moves[2] and computerMove == moves[1]:
-        # print("You selected" + playerMove + "and the computer selected" + computerMove ". You win!")
-        playerScore = playerScore + 1
-else: 
-    print(invalid)
+playAgain = True
+
+while True: 
+    moves = [" rock", " paper", " scissors"]
+
+    def cpuMove():
+        number = random.randint(0, 2)
+        return(moves[number])
+
+
+
+    playerMove = input(username + " choose your move - rock, paper or scissors?")
+    if playerMove == moves[0] or playerMove == moves[1] or playerMove == moves[2]:
+        print("Your selected move was" + playerMove)
+        computerMove = cpuMove()
+        print(computerMove)
+        if playerMove == computerMove:
+            print(username, "You both selected", playerMove, "so it's a draw! Your current score is", playerScore, "and the computer score is", computerScore)
+        elif playerMove == moves[0] and computerMove == moves[2] or playerMove == moves[1] and computerMove == moves[0] or playerMove == moves[2] and computerMove == moves[1]:
+            playerScore = playerScore + 1
+            print(username, "Your move was:" + playerMove + ". Computer move was" + computerMove + ". You win!!! Your current score is", playerScore, "and the computer score is", computerScore)       
+        elif playerMove == moves[0] and computerMove == moves[1] or playerMove == moves[1] and computerMove == moves[2] or playerMove == moves[2] and computerMove == moves[0]:
+            computerScore = computerScore + 1
+            print(username, "Your move was:" + playerMove + ". Computer move was" + computerMove + ". You suck and Computer wins :( Your current score is", playerScore, "and the computer score is", computerScore)
+    else: 
+        print(invalid)
+
+    # playAgainResponse = input("Would you like to play again? y || n ") 
+    # if playAgainResponse == "y" :
+    #     playAgain == True
+    # elif playAgainResponse == "n":
+    #     playAgain == False
