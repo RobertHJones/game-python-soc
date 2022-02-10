@@ -61,7 +61,7 @@ while True:
         computerMove = cpuMove()
         # print(computerMove)
         if playerMove == computerMove:
-            print(username, "You both selected ", playerMove, "so it's a draw! Your current score is", playerScore, "and the computer score is ", computerScore)
+            print(username, "You both selected ", playerMove, "so it's a draw! Your current score is", playerScore, "and the computer score is", computerScore)
         elif playerMove == moves[0] and computerMove == moves[2] or playerMove == moves[1] and computerMove == moves[0] or playerMove == moves[2] and computerMove == moves[1]:
             playerScore = playerScore + 1
             print(username, "Your move was: " + playerMove + ". Computer move was " + computerMove + ". You win!!! Your current score is", playerScore, "and the computer score is", computerScore)       
