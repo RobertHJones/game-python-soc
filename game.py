@@ -41,7 +41,7 @@ invalid = "Invalid move, please select either rock, paper or scissors"
 # win = Result("rock", "win")
 #     win.result
 username = input("What is your name? \n")
-print("Your name is " + username)
+print(bcolors.OKBLUE+"Your name is " + username)
 # if len(username)>0:
 #     print('Yay!') 
 
@@ -55,7 +55,7 @@ while True:
 
 
 
-    playerMove = input(username + " choose your move - rock, paper or scissors? \n")
+    playerMove = input(username + " choose your move - " +"rock, "+  "paper" +"or scissors? \n")
     if playerMove == moves[0] or playerMove == moves[1] or playerMove == moves[2]:
         print("Your selected move was " + playerMove)
         computerMove = cpuMove()
@@ -69,9 +69,9 @@ while True:
             computerScore = computerScore + 1
             print(username, "Your move was: " + playerMove + ". Computer move was: " + computerMove + ". You suck and Computer wins :( Your current score is", playerScore, "and the computer score is", computerScore)
     else: 
-        print(invalid)
+        print(bcolors.FAIL + invalid)
 
-    playAgainResponse = input("Would you like to exit game? y? \n") 
+    playAgainResponse = input(bcolors.WARNING+"Would you like to exit game? y? \n") 
     if playAgainResponse == "y":
         print("bye bye see you again some other time")
         break
